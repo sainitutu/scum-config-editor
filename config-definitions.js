@@ -2365,8 +2365,13 @@ const CONFIG_DEFINITIONS = {
     }
 };
 
-// 範例設定檔 (新版格式)
-const SAMPLE_CONFIG = `[General]
+// 範例設定檔 (新版格式) - 包含所有388個設定項目
+const SAMPLE_CONFIG = `# SCUM 伺服器設定檔 - 完整範例
+# 包含所有388個設定項目
+# 生成時間: ${new Date().toLocaleString('zh-TW')}
+
+[General]
+# 基本設定
 scum.ServerName=我的SCUM伺服器
 scum.ServerDescription=歡迎來到我的SCUM伺服器
 scum.ServerPassword=
@@ -2376,12 +2381,33 @@ scum.ServerPlaystyle=PVE
 scum.WelcomeMessage=歡迎來到我們的SCUM伺服器
 scum.MessageOfTheDay=這是今日訊息
 scum.MessageOfTheDayCooldown=10.000000
+
+# 網路設定
+scum.MaxPing=200.000000
 scum.MinServerTickRate=5
 scum.MaxServerTickRate=30
-scum.MaxPing=200.000000
+scum.MasterServerUpdateSendInterval=60.000000
+scum.MasterServerIsLocalTest=0
+
+# 玩家設定
 scum.LogoutTimer=60.000000
 scum.LogoutTimerWhileCaptured=120.000000
 scum.LogoutTimerInBunker=30000.000000
+scum.DeleteInactiveUsers=0
+scum.DaysSinceLastLoginToBecomeInactive=30
+scum.DeleteBannedUsers=0
+scum.NameChangeCooldown=168.000000
+scum.NameChangeCost=1000.000000
+scum.EnableNewPlayerProtection=1
+scum.NewPlayerProtectionDuration=60.000000
+scum.AllowAutomaticParachuteOpening=1
+scum.CommitSuicideInitialTime=10.000000
+scum.CommitSuicideCooldown=60.000000
+scum.CommitSuicideCooldownResetMultiplier=1.250000
+scum.MaximumBaseProximityWhenSpawning=500.000000
+scum.PermadeathThreshold=-1000.000000
+
+# 遊戲設定
 scum.AllowFirstPerson=1
 scum.AllowThirdPerson=1
 scum.AllowCrosshair=1
@@ -2397,39 +2423,346 @@ scum.HideKillNotification=0
 scum.DisableTimedGifts=0
 scum.UseMapBaseBuildingRestriction=0
 scum.DisableBaseBuilding=0
+scum.VotingDuration=60.000000
+scum.PlayerMinimalVotingInterest=0.500000
+scum.PlayerPositiveVotePercentage=0.500000
+scum.LogSuicides=1
+scum.EnableSpawnOnGround=0
+
+# 聊天設定
 scum.AllowGlobalChat=1
 scum.AllowLocalChat=1
 scum.AllowSquadChat=1
 scum.AllowAdminChat=1
 scum.LimitGlobalChat=0
-scum.FameGainMultiplier=1.000000
-scum.BodySimulationSpeedMultiplier=3.840000
 
 [World]
-scum.MaxAllowedBirds=15
-scum.MaxAllowedCharacters=-1
-scum.MaxAllowedPuppets=-1
-scum.MaxAllowedAnimals=-1
+# 世界設定
 scum.StartTimeOfDay=08:00:00
 scum.TimeOfDaySpeed=3.840000
 scum.NighttimeDarkness=0.100000
 scum.SunriseTime=06:00:00
 scum.SunsetTime=21:00:00
 
+# 生物設定
+scum.MaxAllowedBirds=15
+scum.MaxAllowedCharacters=-1
+scum.MaxAllowedPuppets=-1
+scum.MaxAllowedAnimals=-1
+scum.MaxAllowedDrones=10
+scum.DisableSentrySpawning=0
+scum.EnableSentryRespawning=1
+scum.DisableSuicidePuppetSpawning=0
+scum.PuppetsCanOpenDoors=1
+scum.PuppetsCanVaultWindows=1
+scum.PuppetHealthMultiplier=1.000000
+
+# 動物血量設定
+scum.BoarMaxHealthMultiplier=1.000000
+scum.ChickenMaxHealthMultiplier=1.000000
+scum.DeerMaxHealthMultiplier=1.000000
+scum.DonkeyMaxHealthMultiplier=1.000000
+scum.GoatMaxHealthMultiplier=1.000000
+scum.HorseMaxHealthMultiplier=1.000000
+scum.RabbitMaxHealthMultiplier=1.000000
+scum.WolfMaxHealthMultiplier=1.000000
+scum.BearMaxHealthMultiplier=1.000000
+
 [Vehicles]
+# 載具設定
 scum.FuelDrainFromEngineMultiplier=1.000000
 scum.BatteryDrainFromEngineMultiplier=1.000000
 scum.MaximumTimeOfVehicleInactivity=240:00:00
+scum.BatteryDrainFromDevicesMultiplier=1.000000
+scum.BatteryDrainFromInactivityMultiplier=1.000000
+scum.BatteryChargeWithAlternatorMultiplier=1.000000
+scum.BatteryChargeWithDynamoMultiplier=1.000000
+scum.MaximumTimeForVehiclesInForbiddenZones=24:00:00
+scum.LogVehicleDestroyed=1
+
+# 載具數量控制
+scum.KingletDusterMaxAmount=5
+scum.KingletDusterMaxFunctionalAmount=3
+scum.KingletDusterMinPurchasedAmount=1
+scum.DirtbikeMaxAmount=10
+scum.DirtbikeMaxFunctionalAmount=8
+scum.DirtbikeMinPurchasedAmount=2
+scum.LaikaMaxAmount=8
+scum.LaikaMaxFunctionalAmount=6
+scum.LaikaMinPurchasedAmount=1
+scum.MotorboatMaxAmount=6
+scum.MotorboatMaxFunctionalAmount=4
+scum.MotorboatMinPurchasedAmount=1
+scum.WheelbarrowMaxAmount=20
+scum.WheelbarrowMaxFunctionalAmount=15
+scum.WheelbarrowMinPurchasedAmount=3
+scum.WolfswagenMaxAmount=8
+scum.WolfswagenMaxFunctionalAmount=6
+scum.WolfswagenMinPurchasedAmount=1
+scum.BicycleMaxAmount=25
+scum.BicycleMaxFunctionalAmount=20
+scum.BicycleMinPurchasedAmount=5
+scum.RagerMaxAmount=15
+scum.RagerMaxFunctionalAmount=12
+scum.RagerMinPurchasedAmount=3
+scum.CruiserMaxAmount=6
+scum.CruiserMaxFunctionalAmount=4
+scum.CruiserMinPurchasedAmount=1
+scum.RisMaxAmount=12
+scum.RisMaxFunctionalAmount=10
+scum.RisMinPurchasedAmount=2
+scum.SUPMaxAmount=15
+scum.SUPMaxFunctionalAmount=12
+scum.SUPMinPurchasedAmount=3
+scum.KingletMarinerMaxAmount=3
+scum.KingletMarinerMaxFunctionalAmount=2
+scum.KingletMarinerMinPurchasedAmount=1
+scum.TractorMaxAmount=8
+scum.TractorMaxFunctionalAmount=6
+scum.TractorMinPurchasedAmount=1
 
 [Damage]
+# 傷害設定
 scum.HumanToHumanDamageMultiplier=1.000000
 scum.SentryDamageMultiplier=1.000000
 scum.ZombieDamageMultiplier=1.000000
+scum.DropshipHealthMultiplier=1.000000
+scum.SentryHealthMultiplier=1.000000
+scum.BaseBuildingAttackerSentryHealthMultiplier=1.000000
+scum.ArmedNPCDifficultyLevel=1
+scum.ProbabilityForArmedNPCToDropItemFromHandsWhenSearched=0.500000
+
+# 詳細傷害設定
+scum.HumanToHumanArmedMeleeDamageMultiplier=1.000000
+scum.HumanToHumanUnarmedMeleeDamageMultiplier=1.000000
+scum.HumanToHumanThrowingDamageMultiplier=1.000000
+scum.SentryRailgunDamageMultiplier=1.000000
+scum.SentryGrenadeDamageMultiplier=1.000000
+scum.BaseBuildingAttackerSentryDamageMultiplier=1.000000
+scum.BaseBuildingAttackerSentryRailgunDamageMultiplier=1.000000
+scum.BaseBuildingAttackerSentryGrenadeDamageMultiplier=1.000000
+scum.SentryBaseBuildingDamageMultiplier=1.000000
+scum.DropshipDamageMultiplier=1.000000
+scum.DropshipRailgunDamageMultiplier=1.000000
+scum.DropshipBaseBuildingElementsDamageMultiplier=1.000000
+
+# 物品管理
+scum.ItemDecayDamageMultiplier=1.000000
+scum.FoodDecayDamageMultiplier=1.000000
+scum.WeaponDecayDamageOnFiring=1.000000
+scum.LockProtectionDamageMultiplier=1.000000
+scum.ItemVirtualizationRelevancyUpdatePeriod=5.000000
+scum.ItemVirtualizationEventProcessingTimeBudget=10.000000
+scum.ItemVirtualizationVisitorDistanceTravelledForUpdate=100.000000
+scum.ItemVirtualizationVisitorBounds=1000.000000
+scum.VirtualizedItemBounds=2000.000000
+scum.MaximumTimeForChestsInForbiddenZones=24:00:00
+scum.LogChestOwnership=1
+
+# 建築設定
+scum.FlagOvertakeDuration=168.000000
+scum.MaximumAmountOfElementsPerFlag=100
+scum.ExtraElementsPerFlagForAdditionalSquadMember=10
+scum.MaximumNumberOfExpandedElementsPerFlag=50
+scum.AllowMultipleFlagsPerPlayer=0
+scum.AllowFlagPlacementOnBBElements=0
+scum.ChestAcquisitionDuration=24:00:00
+scum.WeaponRackMaxAmountPerFlagArea=10
+scum.WeaponRackStartDecayingIfFlagAreaHasMoreThan=8
+scum.WallWeaponRackMaxAmountPerFlagArea=5
+scum.WallWeaponRackStartDecayingIfFlagAreaHasMoreThan=4
+scum.WellMaxAmountPerFlagArea=3
+scum.WellStartDecayingIfFlagAreaHasMoreThan=2
+scum.TurretMaxAmountPerFlagArea=2
+scum.TurretStartDecayingIfFlagAreaHasMoreThan=1
+scum.GardenMaxAmountPerFlagArea=5
+scum.AllowFloorPlacementOnHalfAndLowWalls=1
+scum.AllowWallPlacementOnHalfAndLowWalls=1
+
+# 地堡系統
+scum.AbandonedBunkerCommotionThreshold=100.000000
+scum.AbandonedBunkerCommotionThresholdPerPlayerExtra=50.000000
+scum.AbandonedBunkerEnemyActivationThreshold=75.000000
+scum.AbandonedBunkerEnemyActivationThresholdPerPlayerExtra=25.000000
+scum.AbandonedBunkerResetArmoryLockersOnActivationOnly=1
+
+# 地圖設定
+scum.ShouldDestroyEntitiesOutsideMapLimitsOnRestart=1
+scum.EnableLockedLootContainers=1
+scum.CustomMapEnabled=0
+scum.CustomMapCenterXCoordinate=0.000000
+scum.CustomMapCenterYCoordinate=0.000000
+scum.CustomMapWidth=10.000000
+scum.CustomMapHeight=10.000000
+scum.DoorLockability.Garage=1
+
+# 空投系統
+scum.CargoDropCooldownMinimum=1800.000000
+scum.CargoDropCooldownMaximum=3600.000000
+scum.CargoDropFallDelay=30.000000
+scum.CargoDropFallDuration=60.000000
+scum.CargoDropSelfdestructTime=1800.000000
+scum.CargoDropZombieEncounterWeightMultiplier=1.000000
+scum.CargoDropDropshipEncounterWeightMultiplier=1.000000
+
+# 狩獵系統
+scum.MaxAllowedHunts=5
+scum.HuntTriggerChanceOverride_ContinentalForest=-1.000000
+scum.HuntTriggerChanceOverride_ContinentalMeadow=-1.000000
+scum.HuntTriggerChanceOverride_Mediterranean=-1.000000
+scum.HuntTriggerChanceOverride_Mountain=-1.000000
+scum.HuntTriggerChanceOverride_Urban=-1.000000
+scum.HuntTriggerChanceOverride_Village=-1.000000
+scum.HuntFailureTime=3600.000000
+scum.HuntFailureDistance=1000.000000
+
+# 鑰匙卡系統
+scum.MaxAllowedKillboxKeycards=10
+scum.MaxAllowedKillboxKeycards_PoliceStation=5
+scum.MaxAllowedKillboxKeycards_RadiationZone=3
+scum.AbandonedBunkerMaxSimultaneouslyActive=3
+scum.AbandonedBunkerActiveDurationHours=24.000000
+scum.AbandonedBunkerKeyCardActiveDurationHours=2.000000
+scum.SecretBunkerKeyCardActiveDurationHours=4.000000
+
+# 重生系統
+scum.AllowSectorRespawn=1
+scum.AllowShelterRespawn=1
+scum.AllowSquadmateRespawn=1
+scum.RandomRespawnPrice=0.000000
+scum.SectorRespawnPrice=100.000000
+scum.ShelterRespawnPrice=50.000000
+scum.SquadRespawnPrice=25.000000
+scum.RandomRespawnInitialTime=30.000000
+scum.SectorRespawnInitialTime=60.000000
+scum.ShelterRespawnInitialTime=45.000000
+scum.SquadRespawnInitialTime=30.000000
+scum.RandomRespawnCooldown=300.000000
+scum.SectorRespawnCooldown=600.000000
+scum.ShelterRespawnCooldown=450.000000
+scum.SquadRespawnCooldown=300.000000
+scum.RandomCooldownResetMultiplier=1.000000
+scum.SectorCooldownResetMultiplier=1.000000
+scum.ShelterCooldownResetMultiplier=1.000000
+scum.SquadCooldownResetMultiplier=1.000000
+scum.RandomPricePerSquadmateModifier=0.000000
+scum.SectorPricePerSquadmateModifier=10.000000
+scum.ShelterPricePerSquadmateModifier=5.000000
+
+# 突襲保護
+scum.RaidProtectionType=0
+scum.RaidProtectionEnableLog=1
+scum.RaidProtectionFlagSpecificChangeSettingCooldown=24:00:00
+scum.RaidProtectionFlagSpecificChangeSettingPrice=10.000000
+scum.RaidProtectionFlagSpecificMaxProtectionTime=08:00:00
+scum.RaidProtectionOfflineProtectionStartDelay=00:30:00
+scum.RaidProtectionOfflineMaxProtectionTime=-1
+scum.RaidProtectionGlobalShouldShowRaidTimesMessage=1
+scum.RaidProtectionGlobalShouldShowRaidAnnouncementMessage=1
+scum.RaidProtectionGlobalShouldShowRaidStartEndMessages=1
+
+# 資源管理
+scum.WaterPricePerUnitMultiplier=1.000000
+scum.WaterPeriodicInitialAmountMultiplier=1.000000
+scum.WaterPeriodicMaxAmountMultiplier=1.000000
+scum.WaterPeriodicReplenishAmountMultiplier=1.000000
+scum.WaterPeriodicReplenishIntervalMultiplier=1.000000
+scum.WaterProximityReplenishAmountMultiplier=1.000000
+scum.WaterProximityReplenishChanceMultiplier=1.000000
+scum.WaterProximityReplenishTimeoutMultiplier=1.000000
+scum.GasolinePricePerUnitMultiplier=1.000000
+scum.GasolinePeriodicInitialAmountMultiplier=1.000000
+scum.GasolinePeriodicMaxAmountMultiplier=1.000000
+scum.PropanePricePerUnitMultiplier=1.000000
+scum.PropanePeriodicInitialAmountMultiplier=1.000000
+scum.PropanePeriodicMaxAmountMultiplier=1.000000
+scum.GasolinePeriodicReplenishAmountMultiplier=1.000000
+scum.GasolinePeriodicReplenishIntervalMultiplier=1.000000
+scum.GasolineProximityReplenishAmountMultiplier=1.000000
+scum.GasolineProximityReplenishChanceMultiplier=1.000000
+scum.GasolineProximityReplenishTimeoutMultiplier=1.000000
+scum.PropanePeriodicReplenishAmountMultiplier=1.000000
+scum.PropanePeriodicReplenishIntervalMultiplier=1.000000
+scum.PropaneProximityReplenishAmountMultiplier=1.000000
+scum.PropaneProximityReplenishChanceMultiplier=1.000000
+scum.PropaneProximityReplenishTimeoutMultiplier=1.000000
+
+# 掉落物系統
+scum.SpawnerProbabilityMultiplier=1.000000
+scum.ExamineSpawnerProbabilityMultiplier=1.000000
+scum.ExamineSpawnerExpirationTimeMultiplier=1.000000
+scum.SpawnerExpirationTimeMultiplier=1.000000
+
+# 物品冷卻
+scum.EnableItemCooldownGroups=1
+scum.ItemCooldownGroupsDurationMultiplier=1.000000
+
+# 小隊系統
+scum.SquadMemberCountAtIntLevel1=2
+scum.SquadMemberCountAtIntLevel2=3
+scum.SquadMemberCountAtIntLevel3=4
+scum.SquadMemberCountAtIntLevel4=5
+scum.SquadMemberCountAtIntLevel5=6
+scum.SquadMemberCountLimitForPunishment=8
+scum.RTSquadProbationDuration=7
+scum.SquadMoneyPenaltyPerPrevSquadMember=100.000000
+scum.SquadFamePointsPenaltyPerPrevSquadMember=50.000000
+scum.EnableSquadMemberNameWidget=1
+
+# 農業系統
+scum.PlantHarvestExamineTimeMultiplier=1.000000
+scum.FirstPlantHarvestAdditionalChance=0.100000
+
+# 任務系統
+scum.QuestsEnabled=1
+scum.QuestsGlobalCycleDuration=23:59:59
+scum.MaxQuestsPerCyclePerTrader=5
+scum.MaxSimultaneousQuestsPerTrader=3
+scum.QuestsTraderRefillCooldown=01:00:00
+scum.QuestsPhoneRefillCooldown=02:00:00
+scum.QuestsNoticeBoardRefillCooldown=04:00:00
+scum.QuestRequirementsBlockTradeableItems=1
+
+# 砲塔系統
+scum.TurretsAttackPrisoners=1
+scum.TurretsAttackPuppets=1
+scum.TurretsAttackVehicles=0
+scum.TurretsAttackSentries=0
+scum.TurretsAttackAnimals=0
+scum.TurretsAttackArmedNPCs=1
+
+# UI介面
+scum.HideQuickAccessBar=0
+scum.HideLifeIndicators=0
+
+# 伺服器管理
+scum.PartialWipe=0
+scum.GoldWipe=0
+scum.FullWipe=0
+
+# 系統設定
+scum.SettingsVersion=1
+scum.MaxAllowedNPCs=100
+scum.EnableDeenaOnServer=1
+scum.EnableDigitalDeluxeStarterPack=0
 
 [Features]
+# 遊戲功能
+scum.FameGainMultiplier=1.000000
+scum.BodySimulationSpeedMultiplier=3.840000
 scum.MovementInertiaAmount=1.000000
 scum.StaminaDrainOnJumpMultiplier=1.000000
 scum.DisableExhaustion=0
+scum.FamePointPenaltyOnDeath=0.100000
+scum.FamePointPenaltyOnKilled=0.050000
+scum.FamePointRewardOnKill=0.100000
+scum.StaminaDrainOnClimbMultiplier=1.000000
+scum.MaintainItemsExpirationTime=30
+scum.KillboxDefuseFailureBonus=0.100000
+scum.BedrollVisibilityTimer=300.000000
+scum.EnableBCULocking=1
+
+# 技能設定
 scum.ArcherySkillMultiplier=1.000000
 scum.AviationSkillMultiplier=1.000000
 scum.AwarenessSkillMultiplier=1.000000
@@ -2450,4 +2783,49 @@ scum.RunningSkillMultiplier=1.000000
 scum.SnipingSkillMultiplier=1.000000
 scum.StealthSkillMultiplier=1.000000
 scum.SurvivalSkillMultiplier=1.000000
-scum.ThieverySkillMultiplier=1.000000`;
+scum.ThieverySkillMultiplier=1.000000
+
+[Encounters]
+# 遭遇系統
+scum.EncounterBaseCharacterAmountMultiplier=1.000000
+scum.EncounterExtraCharacterPerPlayerMultiplier=1.000000
+scum.EncounterExtraCharacterPlayerCapMultiplier=1.000000
+scum.EncounterCharacterRespawnTimeMultiplier=1.000000
+scum.EncounterCharacterRespawnBatchSizeMultiplier=1.000000
+scum.EncounterCharacterAggressiveSpawnChanceOverride=-1.000000
+scum.EncounterCharacterAINoiseResponseRadiusMultiplier=1.000000
+scum.EncounterHordeGroupBaseCharacterAmountMultiplier=1.000000
+scum.EncounterHordeGroupExtraCharacterPerPlayerMultiplier=1.000000
+scum.EncounterHordeGroupExtraCharacterPlayerCapMultiplier=1.000000
+scum.EncounterHordeBaseCharacterAmountMultiplier=1.000000
+scum.EncounterHordeExtraCharacterPerPlayerMultiplier=1.000000
+scum.EncounterHordeExtraCharacterPlayerCapMultiplier=1.000000
+scum.EncounterHordeActivationChanceMultiplier=1.000000
+scum.EncounterHordeNoiseCheckCooldownMultiplier=1.000000
+scum.EncounterHordeSpawnDistanceMultiplier=1.000000
+scum.EncounterHordeGroupRefillTimeMultiplier=1.000000
+scum.EncounterHordeShouldPlayActivationSound=1
+scum.EncounterHordePuppetHordeActivationScreamOverrideChance=-1.000000
+scum.EncounterCanRemoveLowPriorityCharacters=1
+scum.EncounterCanClampCharacterNumWhenOutOfResources=1
+scum.EncounterGlobalZoneCooldownMultiplier=1.000000
+scum.EncounterEnableSpawnPreventionAreaSpawnOnCharacterDeath=0
+scum.PuppetWorldEncounterSpawnWeightMultiplier=1.000000
+scum.AnimalWorldEncounterSpawnWeightMultiplier=1.000000
+scum.DropshipWorldEncounterSpawnWeightMultiplier=1.000000
+scum.EnableDropshipAbandonedBunkerEncounter=1
+scum.DropshipAbandonedBunkerEncounterTriggerChance=-1.000000
+scum.BaseBuildingEncounterTriggerChance=0.100000
+scum.BaseBuildingEncounterTriggerTimeMultiplier=1.000000
+scum.EnableDropshipBaseBuildingEncounter=1
+scum.SpawnEncountersInThreatZonesIgnoringBaseBuilding=0
+scum.EnableEncounterManagerLowPlayerCountMode=1
+scum.BaseBuildingEncounterMinNumElementsToStart=-1
+scum.BaseBuildingEncounterMinNumElementsToEnd=5
+scum.BaseBuildingEncounterDamagePercentageIncreasePerSquadMember=0.100000
+scum.BaseBuildingEncounterTimeToFullMinNumToEnd=3600.000000
+scum.BaseBuildingEncounterMaximumMinToEndReduction=1800.000000
+
+# 設定檔結束
+# 總計 388 個設定項目
+# 涵蓋 31 個設定類別`;
