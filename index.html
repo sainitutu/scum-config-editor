@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCUM 伺服器設定編輯器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 SCUM 伺服器設定編輯器</h1>
+            <p>輕鬆編輯和管理您的SCUM伺服器設定檔</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 輸入區域 -->
+            <section class="input-section">
+                <h2>📝 設定檔輸入</h2>
+                <div class="input-controls">
+                    <button id="loadSampleBtn" class="btn btn-secondary">載入範例設定</button>
+                    <button id="clearBtn" class="btn btn-danger">清空</button>
+                </div>
+                <textarea 
+                    id="configInput" 
+                    placeholder="請貼上您的SCUM伺服器設定檔內容，或點擊「載入範例設定」查看示例..."
+                    rows="10"
+                ></textarea>
+                <button id="parseBtn" class="btn btn-primary">🔍 解析設定</button>
+            </section>
+
+            <!-- 設定編輯區域 -->
+        <section class="editor-section">
+            <h2>📝 設定編輯器</h2>
+            <div class="collapse-controls">
+                <button class="btn btn-info" onclick="toggleAllCategories(true)">全部展開</button>
+                <button class="btn btn-secondary" onclick="toggleAllCategories(false)">全部收起</button>
+            </div>
+            <div id="configEditor" class="config-editor">
+                <div class="placeholder">
+                    <p>請先在上方輸入設定檔內容，然後點擊「解析設定」按鈕</p>
+                </div>
+            </div>
+        </section>
+
+            <!-- 輸出區域 -->
+            <section class="output-section">
+                <h2>📤 輸出設定</h2>
+                <div class="output-controls">
+                    <button id="generateBtn" class="btn btn-success">生成設定檔</button>
+                    <button id="copyBtn" class="btn btn-info">📋 複製到剪貼板</button>
+                </div>
+                <textarea 
+                    id="configOutput" 
+                    placeholder="修改完成後，點擊「生成設定檔」按鈕生成最終設定..."
+                    rows="10"
+                    readonly
+                ></textarea>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2025 SCUM 伺服器設定編輯器 | 開源項目</p>
+        </footer>
+    </div>
+
+    <script src="config-definitions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
