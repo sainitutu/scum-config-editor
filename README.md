@@ -15,7 +15,8 @@
 ## 🚀 線上使用
 
 訪問 GitHub Pages 部署的線上版本：
-[https://your-username.github.io/scum-config-editor](https://your-username.github.io/scum-config-editor)
+[https://sainitutu.github.io/scum-config-editor/](https://sainitutu.github.io/scum-config-editor/)
+
 
 ## 📖 使用方法
 
